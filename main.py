@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier, plot_tree
-from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, classification_report
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, classification_report, accuracy_score
 import matplotlib.pyplot as plt
 
 ##Reading Data------------
@@ -43,8 +43,8 @@ x_penguin = penguin_data.drop('species', axis=1)
 y_penguin = penguin_data['species']
 x_train_penguin, x_test_penguin, y_train_penguin, y_test_penguing = train_test_split(x_penguin, y_penguin, test_size=0.2, random_state=42)
 
-x_abalone = abalone_data.drop('type', axis=1)
-y_abalone= penguin_data['type']
+x_abalone = abalone_data.drop('Type', axis=1)
+y_abalone= abalone_data['Type']
 x_train_abalone, x_test_abalone, y_train_abalone, y_test_abalone = train_test_split(x_abalone, y_abalone, test_size=0.2, random_state=42)
 
 ##4(a) Base DT
@@ -68,20 +68,27 @@ plt.show()
 y_penguin_pred = penguin_base_dt.predict(x_test_penguin)
 y_abalone_pred = abalone_base_dt.predict(x_test_abalone)
 
+f1_macro_p = f1_score(y_test_penguing, y_penguin_pred , average='macro')
+f1_weighted_p = f1_score(y_test_penguing, y_penguin_pred, average='weighted')
+
+f1_macro_a = f1_score(y_test_abalone, y_abalone_pred , average='macro')
+f1_weighted_a = f1_score(y_test_abalone, y_abalone_pred, average='weighted')
+
+
 print("-------- Base-DT Penguin Performance-------- \nConfusion Matrix:")
 print(confusion_matrix(y_test_penguing, y_penguin_pred))
 print("\nClassification Report:")
 print(classification_report(y_test_penguing, y_penguin_pred))
+print("Macro-average F1:")
+print(f1_macro_p)
+print("Weighted-average F1:")
+print(f1_weighted_p)
 
 print("-------- Base-DT Abalone Perfromance:--------  \nConfusion Matrix:")
 print(confusion_matrix(y_test_abalone, y_abalone_pred))
 print("\nClassification Report:")
 print(classification_report(y_test_abalone, y_abalone_pred))
-
-
-
-
-
-
-
-
+print("Macro-average F1:")
+print(f1_macro_a )
+print("Weighted-average F1:")
+print(f1_weighted_a)
