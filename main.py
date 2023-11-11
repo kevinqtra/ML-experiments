@@ -44,17 +44,36 @@ x_abalone = abalone_data.drop('type', axis=1)
 y_abalone= penguin_data['type']
 x_train_abalone, x_test_abalone, y_train_abalone, y_test_abalone = train_test_split(x_abalone, y_abalone, test_size=0.2, random_state=42)
 
-##Doing 4(a) and a little bit of 5-------------------------
+##4(a) Base DT
 penguin_base_dt = DecisionTreeClassifier()
 penguin_base_dt.fit(x_train_penguin,y_train_penguin)
 
-y_test_predict_proba = penguin_base_dt.predict_proba(X_test)
+abalone_base_dt = DecisionTreeClassifier()
+abalone_base_dt.fit(x_train_abalone,y_train_abalone)
 
-# calc confusion matrix
-y_test_predict = tree.predict(X_test[columns])
-print("Confusion Matrix Tree : \n", confusion_matrix(y_test, y_test_predict),"\n")
-print("The precision for Tree is ",precision_score(y_test, y_test_predict)) 
-print("The recall for Tree is ",recall_score(y_test, y_test_predict),"\n")  
+plt.figure(figsize=(20, 10))
+plot_tree(penguin_base_dt, feature_names=x_train_penguin.columns, class_names=list(map(str, penguin_base_dt.classes_)), filled=True, rounded=True)
+plt.savefig('penguin_base_dt.png', format='png')
+plt.show()
+
+plt.figure(figsize=(20, 10))
+plot_tree(abalone_base_dt, feature_names=x_train_abalone.columns, class_names=list(map(str, abalone_base_dt.classes_)), filled=True, rounded=True, max_depth=5)
+plt.savefig('abalone_base_dt.png', format='png')
+plt.show()
+
+#5
+y_penguin_pred = penguin_base_dt.predict(x_test_penguin)
+y_abalone_pred = abalone_base_dt.predict(x_test_abalone)
+
+print("-------- Base-DT Penguin Performance-------- \nConfusion Matrix:")
+print(confusion_matrix(y_test_penguing, y_penguin_pred))
+print("\nClassification Report:")
+print(classification_report(y_test_penguing, y_penguin_pred))
+
+print("-------- Base-DT Abalone Perfromance:--------  \nConfusion Matrix:")
+print(confusion_matrix(y_test_abalone, y_abalone_pred))
+print("\nClassification Report:")
+print(classification_report(y_test_abalone, y_abalone_pred))
 
 
 
