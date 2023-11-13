@@ -44,15 +44,15 @@ for iteration in range(num_iterations):
         y_test_penguin, 
         iteration
     )
-    accuracy_abalone, macro_f1_abalone, weighted_f1_abalone = base_dt(
-        'performance/abalone-performance.txt', 
-        'images/base_dt_abalone.png', 
-        X_train_abalone, 
-        X_test_abalone, 
-        y_train_abalone, 
-        y_test_abalone, 
-        iteration
-    )
+    # accuracy_abalone, macro_f1_abalone, weighted_f1_abalone = base_dt(
+    #     'performance/abalone-performance.txt', 
+    #     'images/base_dt_abalone.png', 
+    #     X_train_abalone, 
+    #     X_test_abalone, 
+    #     y_train_abalone, 
+    #     y_test_abalone, 
+    #     iteration
+    # )
 
 save_variance_to_file(
     'performance/penguin-performance.txt', 
@@ -61,13 +61,13 @@ save_variance_to_file(
     macro_f1_penguin, 
     weighted_f1_penguin
 )
-save_variance_to_file(
-    'performance/abalone-performance.txt', 
-    'Base-DT', 
-    accuracy_abalone, 
-    macro_f1_abalone, 
-    weighted_f1_abalone
-)
+# save_variance_to_file(
+#     'performance/abalone-performance.txt', 
+#     'Base-DT', 
+#     accuracy_abalone, 
+#     macro_f1_abalone, 
+#     weighted_f1_abalone
+# )
 
 # Top-DT
 for iteration in range(num_iterations):
@@ -80,14 +80,14 @@ for iteration in range(num_iterations):
         y_test_penguin, 
         iteration
     )
-    accuracy_abalone, macro_f1_abalone, weighted_f1_abalone = base_dt(
-        'performance/abalone-performance.txt', 
-        X_train_abalone, 
-        X_test_abalone, 
-        y_train_abalone, 
-        y_test_abalone, 
-        iteration
-    )
+    # accuracy_abalone, macro_f1_abalone, weighted_f1_abalone = base_dt(
+    #     'performance/abalone-performance.txt', 
+    #     X_train_abalone, 
+    #     X_test_abalone, 
+    #     y_train_abalone, 
+    #     y_test_abalone, 
+    #     iteration
+    # )
 
 save_variance_to_file(
     'performance/penguin-performance.txt', 
@@ -96,13 +96,13 @@ save_variance_to_file(
     macro_f1_penguin, 
     weighted_f1_penguin
 )
-save_variance_to_file(
-    'performance/abalone-performance.txt', 
-    'Top-DT', 
-    accuracy_abalone, 
-    macro_f1_abalone, 
-    weighted_f1_abalone
-)
+# save_variance_to_file(
+#     'performance/abalone-performance.txt', 
+#     'Top-DT', 
+#     accuracy_abalone, 
+#     macro_f1_abalone, 
+#     weighted_f1_abalone
+# )
 
 # Base-MLP
 for iteration in range(num_iterations):
@@ -115,14 +115,14 @@ for iteration in range(num_iterations):
         iteration
     )
     
-    accuracy_abalone, macro_f1_abalone, weighted_f1_abalone = base_mlp(
-        'performance/abalone-performance.txt', 
-        X_train_abalone, 
-        X_test_abalone, 
-        y_train_abalone, 
-        y_test_abalone, 
-        iteration
-    )
+    # accuracy_abalone, macro_f1_abalone, weighted_f1_abalone = base_mlp(
+    #     'performance/abalone-performance.txt', 
+    #     X_train_abalone, 
+    #     X_test_abalone, 
+    #     y_train_abalone, 
+    #     y_test_abalone, 
+    #     iteration
+    # )
 
 save_variance_to_file(
     'performance/penguin-performance.txt', 
@@ -131,13 +131,13 @@ save_variance_to_file(
     macro_f1_penguin, 
     weighted_f1_penguin
 )
-save_variance_to_file(
-    'performance/abalone-performance.txt', 
-    'Base-MLP', 
-    accuracy_abalone, 
-    macro_f1_abalone, 
-    weighted_f1_abalone
-)
+# save_variance_to_file(
+#     'performance/abalone-performance.txt', 
+#     'Base-MLP', 
+#     accuracy_abalone, 
+#     macro_f1_abalone, 
+#     weighted_f1_abalone
+# )
 
 # Top-MLP
 for iteration in range(num_iterations):
@@ -149,14 +149,14 @@ for iteration in range(num_iterations):
         y_test_penguin, 
         iteration
     )
-    accuracy_abalone, macro_f1_abalone, weighted_f1_abalone = top_mlp(
-        'performance/abalone-performance.txt', 
-        X_train_abalone, 
-        X_test_abalone, 
-        y_train_abalone, 
-        y_test_abalone, 
-        iteration
-    )
+    # accuracy_abalone, macro_f1_abalone, weighted_f1_abalone = top_mlp(
+    #     'performance/abalone-performance.txt', 
+    #     X_train_abalone, 
+    #     X_test_abalone, 
+    #     y_train_abalone, 
+    #     y_test_abalone, 
+    #     iteration
+    # )
 
 save_variance_to_file(
     'performance/penguin-performance.txt', 
@@ -165,10 +165,10 @@ save_variance_to_file(
     macro_f1_penguin, 
     weighted_f1_penguin
 )
-save_variance_to_file(
-    'performance/abalone-performance.txt', 
-    'Top-MLP', 
-    accuracy_abalone, 
-    macro_f1_abalone, 
-    weighted_f1_abalone
-)
+# save_variance_to_file(
+#     'performance/abalone-performance.txt', 
+#     'Top-MLP', 
+#     accuracy_abalone, 
+#     macro_f1_abalone, 
+#     weighted_f1_abalone
+# )
