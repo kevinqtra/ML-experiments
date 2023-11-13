@@ -1,5 +1,12 @@
 # ML-experiments
 
+## Prerequisites:
+# Required modules:
+- matplotlib
+- scikit-learn
+- numpy
+- pandas
+
 ## Organization:
 
 1. Create a `src` directory
